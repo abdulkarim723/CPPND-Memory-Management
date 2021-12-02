@@ -41,7 +41,6 @@ public:
     // constructor / destructor
     ChatLogic();
     ~ChatLogic();
-
     // getter / setter
     void SetPanelDialogHandle(ChatBotPanelDialog *panelDialog);
     void SetChatbotHandle(ChatBot *chatbot);

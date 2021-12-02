@@ -16,9 +16,11 @@ ChatLogic::ChatLogic()
 {
 }
 
+
 ChatLogic::~ChatLogic()
 {
 }
+
 
 template <typename T>
 void ChatLogic::AddAllTokensToElement(std::string tokenID, tokenlist &tokens, T &element)
@@ -184,8 +186,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     }
 
     // add chatbot to graph root node
-    //_chatBot->SetRootNode(rootNode);
-    //rootNode->MoveChatbotHere(_chatBot);
     ChatBot chatBot("../images/chatbot.png");
     _chatBot = &chatBot;
     // add pointer to chatlogic so that chatbot answers can be passed on to the GUI
@@ -193,8 +193,6 @@ void ChatLogic::LoadAnswerGraphFromFile(std::string filename)
     // add chatbot to graph root node
     _chatBot->SetRootNode(rootNode);
     rootNode->MoveChatbotHere(std::move(chatBot));
-
-    ////
     //// EOF STUDENT CODE
 }
 
