@@ -48,7 +48,7 @@ ChatBot::~ChatBot()
 ChatBot::ChatBot(ChatBot&& rhs) : _chatLogic{rhs._chatLogic}, _rootNode{rhs._rootNode}, _image{rhs._image}
 {
     std::cout << "ChatBot Move Constructor" << std::endl;
-
+    _chatLogic->SetChatbotHandle(this);
     // invalidate data handles
     rhs._chatLogic = nullptr;
     rhs._rootNode = nullptr;
@@ -61,6 +61,7 @@ ChatBot& ChatBot::operator=(ChatBot&& rhs){
      _chatLogic = rhs._chatLogic;
      _rootNode = rhs._rootNode; 
      _image = rhs._image;
+     _chatLogic->SetChatbotHandle(this);
     // invalidate data handles
     rhs._chatLogic = nullptr;
     rhs._rootNode = nullptr;
