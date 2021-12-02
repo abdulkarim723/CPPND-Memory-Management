@@ -82,7 +82,7 @@ void ChatBot::ReceiveMessageFromUser(std::string message)
         auto edge = _currentNode->GetChildEdgeAtIndex(i);
         for (auto keyword : edge->GetKeywords())
         {
-            EdgeDist ed{edge.get(), ComputeLevenshteinDistance(keyword, message)};
+            EdgeDist ed{edge, ComputeLevenshteinDistance(keyword, message)};
             levDists.push_back(ed);
         }
     }
