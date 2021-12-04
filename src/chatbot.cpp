@@ -42,8 +42,6 @@ ChatBot::~ChatBot()
     }
 }
 
-//// STUDENT CODE
-////
 // ChatBot Move Constructor 
 ChatBot::ChatBot(ChatBot&& rhs) : _chatLogic{rhs._chatLogic}, _rootNode{rhs._rootNode}, _image{rhs._image}
 {
@@ -56,7 +54,7 @@ ChatBot::ChatBot(ChatBot&& rhs) : _chatLogic{rhs._chatLogic}, _rootNode{rhs._roo
 }
 
 ChatBot& ChatBot::operator=(ChatBot&& rhs){
-    std::cout << "Copy assignment operator" << std::endl;
+    std::cout << "Move Assignment Operator" << std::endl;
     if(this == &rhs) return *this;
      _chatLogic = rhs._chatLogic;
      _rootNode = rhs._rootNode; 
@@ -69,8 +67,17 @@ ChatBot& ChatBot::operator=(ChatBot&& rhs){
 
     return *this;
 }
-////
-//// EOF STUDENT CODE
+
+ChatBot::ChatBot(const ChatBot& rhs){
+    _image = new wxBitmap();
+    *_image = *rhs._image;
+}
+
+ChatBot& ChatBot::operator=(const ChatBot& rhs){
+    delete _image;
+    _image = new wxBitmap();
+    *_image = *rhs._image;
+}
 
 void ChatBot::ReceiveMessageFromUser(std::string message)
 {
